@@ -11,11 +11,11 @@ type PageModule = {
 
 createInertiaApp({
   resolve: (name) => {
-    const pages = import.meta.glob<PageModule>("../pages/**/*.tsx", {
+    const pages = import.meta.glob<PageModule>("./pages/**/*.tsx", {
       eager: true,
     });
 
-    return pages[`../pages/${name}.tsx`];
+    return pages[`./pages/${name}.tsx`];
   },
   setup({ el, App, props }) {
     createRoot(el).render(<App {...props} />);
